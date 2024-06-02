@@ -27,7 +27,7 @@ public class SecurityApplication {
 		return args -> {
 			var admin = RegisterRequest.builder()
 					.firstname("Admin")
-					.lastname("Admin")
+//					.lastname("Admin")
 					.email("admin@mail.com")
 					.password("password")
 					.role(ADMIN)
@@ -36,7 +36,7 @@ public class SecurityApplication {
 
 			var manager = RegisterRequest.builder()
 					.firstname("Admin")
-					.lastname("Admin")
+//					.lastname("Admin")
 					.email("manager@mail.com")
 					.password("password")
 					.role(MANAGER)

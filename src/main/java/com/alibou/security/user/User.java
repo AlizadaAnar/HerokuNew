@@ -31,7 +31,8 @@ public class User implements UserDetails {
   @GeneratedValue
   private Integer id;
   private String firstname;
-  private String lastname;
+  private String pNumber1;
+  private String pNumber2;
   private String email;
   private String password;
 
