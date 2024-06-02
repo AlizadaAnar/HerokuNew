@@ -15,7 +15,7 @@ public class SharingController {
 
     private final SharingService sharingService;
 
-    @PostMapping
+    @PostMapping("/share")
     public ResponseEntity<String> uploadSharingRequest(
             @RequestParam("title") String title,
             @RequestParam("weight") String weight,
@@ -34,13 +34,13 @@ public class SharingController {
     }
 
 
-    @GetMapping
+    @GetMapping("/get-all-sharing")
     public List<SharingEntity> getAllSharings() {
         return sharingService.getAllSharings();
     }
 
 
-    @PutMapping
+    @PutMapping("/update-by-id")
     public ResponseEntity<String> updateSharing(@RequestParam("id") Long id,
                                                 @RequestParam("title") String title,
                                                 @RequestParam("weight") String weight,
@@ -65,7 +65,7 @@ public class SharingController {
     }
 
 
-    @DeleteMapping
+    @DeleteMapping("/remove-by-id")
     public ResponseEntity<String> deleteSharingRequest(@RequestParam Long id) {
         try {
             String message = sharingService.deleteSharing(id);
