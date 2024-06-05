@@ -2,6 +2,7 @@ package com.alibou.security.sharing;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +15,7 @@ public class SharingController {
 
     private final SharingService sharingService;
 
-    @PostMapping("/share")
+    @PostMapping(value = "/share", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> uploadSharingRequest(
             @RequestParam("title") String title,
             @RequestParam("weight") String weight,
@@ -33,13 +34,13 @@ public class SharingController {
     }
 
 
-    @GetMapping("/get-all-sharing")
+    @GetMapping(value = "/get-all-sharing", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<SharingEntity> getAllSharings() {
         return sharingService.getAllSharings();
     }
 
 
-    @PutMapping("/update-by-id")
+    @PutMapping(value = "/update-by-id", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> updateSharing(@RequestParam("id") Long id,
                                                 @RequestParam("title") String title,
                                                 @RequestParam("weight") String weight,
@@ -64,7 +65,7 @@ public class SharingController {
     }
 
 
-    @DeleteMapping("/remove-by-id")
+    @DeleteMapping(value = "/remove-by-id", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> deleteSharingRequest(@RequestParam Long id) {
         try {
             String message = sharingService.deleteSharing(id);
