@@ -1,1 +1,1 @@
-web: java -Dserver.port=8080 -jar target/Farming.jar
+web: java -jar target/security-0.0.1-SNAPSHOT.jar
